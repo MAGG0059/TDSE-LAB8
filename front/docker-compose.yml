@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  apache:
+    image: httpd:2.4
+    container_name: apache-frontend
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./httpd.conf:/usr/local/apache2/conf/httpd.conf:ro
+      - ./html:/usr/local/apache2/htdocs:ro
+      - ./certbot/conf:/etc/letsencrypt:ro
+      - ./certbot/www:/var/www/certbot:ro
+    networks:
+      - frontend-network
+    restart: unless-stopped
+
+networks:
+  frontend-network:
+    driver: bridge

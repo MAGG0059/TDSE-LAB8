@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Secure Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <h1>Dashboard</h1>
+        <div class="user-info">
+            <p><strong>Welcome,</strong> <span id="user-name"></span></p>
+            <p><strong>Email:</strong> <span id="user-email"></span></p>
+        </div>
+
+        <div class="secure-badge">
+            <span class="badge secure">HTTPS Secure</span>
+            <span class="badge auth">Session Authenticated</span>
+        </div>
+
+        <div class="api-section">
+            <h3>API Test</h3>
+            <button onclick="testApi()">Test /api/auth/me</button>
+            <pre id="api-response"></pre>
+        </div>
+
+        <button onclick="logout()" class="logout-btn">Logout</button>
+    </div>
+</div>
+
+<script src="/js/app.js"></script>
+</body>
+</html>
